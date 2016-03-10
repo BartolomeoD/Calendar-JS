@@ -10,20 +10,16 @@ $(document).ready(function() {
   $('#d2').hide();
   $('#d3').hide();
   $('#d4').hide();
-  $('#prvs').hide();
-  $('#next').hide();
+  $('.bottom').hide();
   var page;
   var pageEnd;
   $('#b1').on("click", function() {
-  $('#prvs').hide();
-  $('#next').hide();
-
+  $('.bottom').hide();
     $(".content").html("<div> HElloWorld! </div>");
   });
 
   $('#b2').on("click", function() {
-	$('#prvs').hide();
-	$('#next').hide();
+    $('.bottom').hide();
     $.getJSON('JSON/data.json', processData);
     function processData(data) {
       var empty='';
@@ -35,8 +31,7 @@ $(document).ready(function() {
   });
 
   $('#b3').on("click", function() {
-	$('#prvs').hide();
-    $('#next').hide();
+    $('.bottom').hide();
     $.getJSON('JSON/data2.json', processData);
     function processData(data) {
       var bla='';
@@ -57,8 +52,7 @@ $(document).ready(function() {
       for (numbPage = page; numbPage < pageEnd; numbPage++) {
         empty+='<p>'+data[numbPage].id+'<br>'+data[numbPage].name+'</p>';
       };
-	  $('#prvs').show();
-	  $('#next').show();
+      $('.bottom').show();
       $(".content").html(empty);
 	 // $(".content").html("dsada");
 };
