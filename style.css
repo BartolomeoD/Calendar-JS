@@ -1,0 +1,25 @@
+.sidebar, .content {
+    padding: 10px; /* Поля */
+    border: solid 1px #000; /* Параметры рамки */
+    background: #8080FF; /* Цвет фона */
+    box-shadow: inset 0 0 6px;
+    text-align: center;
+   }
+.layout {
+    margin: 15px 0; /* Отступы сверху и снизу */
+    margin-left: 20%;
+    overflow: hidden; /* Отменяем действие float */
+    min-width: 800; /* Минимальная ширина */
+    max-width: 60%; /* Максимальная ширина */
+   }
+.sidebar { /* Навигация по сайту */
+    width: 15%; /* Ширина меню */
+    float: left; /* Состыковка с другим слоем по горизонтали */
+   }
+.sidebar ul {
+    list-style: none; /* Убираем маркеры */
+    padding: 0; /* Убираем отступы */
+   }
+.content { /* Основное содержание страницы */
+    margin-left: 35%px; /* Отступ слева */
+   }
