@@ -1,4 +1,4 @@
-.sidebar, .content {
+.sidebar, .content,.bottom {
     padding: 10px; /* Поля */
     border: solid 1px #000; /* Параметры рамки */
     background: #8080FF; /* Цвет фона */
