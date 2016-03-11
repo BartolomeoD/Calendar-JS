@@ -6,6 +6,7 @@ function include(url) {
 include ("jquery-2.2.1.min.js");
 
 $(document).ready(function() {
+	$(".bottom").hide();
   var getfromjson = function(jsonurl, page, pageEnd) {
     $.getJSON(jsonurl, function(data) {
       var jsonstring = '';
@@ -17,17 +18,21 @@ $(document).ready(function() {
   };
   $('#b1').on("click", function() {
     $(".content").html("<div> HElloWorld! </div>");
+	$(".bottom").hide();
   });
 
   $('#b2').on("click", function() {
     getfromjson('JSON/data.json', 0, 4);
+	$(".bottom").hide();
   });
 
   $('#b3').on("click", function() {
     getfromjson('JSON/data3.json', 0, 10);
+	$(".bottom").hide();
   });
 
   $('#b4').on("click", function() {
+	  $(".bottom").show();
 	  $.getJSON('JSON/data3.json', processData);
     function processData(data) {
 		lastPage = data.length % 5;
@@ -36,8 +41,8 @@ $(document).ready(function() {
 		page = 0 ;
 		pageEnd = 5;
     getfromjson('JSON/data3.json',page, pageEnd);
-     $('.bottom').show();
-    $('#Next').on("click", function(){
+      $('.bottom').show();   
+    $('#next').on("click", function(){
 		if(pageEnd<=numLastPage)
 			{
 			if(pageEnd==numLastPage){
@@ -45,18 +50,21 @@ $(document).ready(function() {
 		pageEnd= pageEnd + 5;
 		empty = ' ';
 		getfromjson('JSON/data3.json', page, numLastPage+lastPage);
-		}
+			}
 		else{
       page = pageEnd;
       pageEnd += 5;
       getfromjson('JSON/data3.json', page, pageEnd);
 	}}})
-	
-	$('#Prvs').on("click", function(){
+	$('#prvs').on("click", function(){
 		if (page>4){
       page=page - 5;
 	  pageEnd= pageEnd - 5;
       getfromjson('JSON/data3.json', page, pageEnd);
 	}})
   })
-})
+  $('#b5').on("click", function() {
+	$(".content").html("jk<br>ldgahklf<br><br>da<br><br><br><br><br>kg<br>hdfk<br><br><br>n fjaksdfkas<br>jdf/n/n<br>/n/n/<br>n/n<br>/n")
+	$(".bottom").hide();
+ })
+ })
