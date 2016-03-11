@@ -32,7 +32,6 @@ $(document).ready(function() {
     function processData(data) {
 		lastPage = data.length % 5;
 		numLastPage = data.length - lastPage;
-		alert(numLastPage);
 	}
 		page = 0 ;
 		pageEnd = 5;
@@ -40,7 +39,6 @@ $(document).ready(function() {
       $('.bottom').show();
     
     $('#Next').on("click", function(){
-	  //alert(page+' '+ pageEnd);
 		if(pageEnd<=numLastPage)
 			{
 			if(pageEnd==numLastPage){
