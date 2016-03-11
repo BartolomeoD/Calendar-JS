@@ -45,12 +45,7 @@ $(document).ready(function() {
 		page=page +5;
 		pageEnd= pageEnd + 5;
 		empty = ' ';
-		$.getJSON('JSON/data3.json', function(data) {
-		for(var numbPage=page;numbPage < data.length; numbPage++) 
-			{
-                empty+='<div>'+data[numbPage].id+': '+data[numbPage].name+'<br>'+'</div>';
-		    }
-			$(".content").html(empty);})
+		getfromjson('JSON/data3.json', page, numLastPage+lastPage);
 		}
 		else{
       page = pageEnd;
