@@ -13,11 +13,11 @@ $(document).ready(function() {
       for (var num = page; num < pageEnd; num++) {
         jsonstring+='<div>'+data[num].id+': '+data[num].name+'<br>'+'</div>';
       }
-      $(".content").html(jsonstring);
+      $(".main").html(jsonstring);
     })
   };
   $('#b1').on("click", function() {
-    $(".content").html("<div> HElloWorld! </div>");
+    $(".main").html("<div> HElloWorld! </div>");
 	$(".bottom").hide();
   });
 
