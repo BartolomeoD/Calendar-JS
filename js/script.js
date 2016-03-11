@@ -3,102 +3,68 @@ function include(url) {
   script.src = url;
   document.getElementsByTagName('head')[0].appendChild(script);
 }
-include ("js/jquery-2.2.1.min.js");
+include ("jquery-2.2.1.min.js");
 
 $(document).ready(function() {
-  $('#d1').hide();
-  $('#d2').hide();
-  $('#d3').hide();
-  $('#d4').hide();
-  $('.bottom').hide();
-  var page;
-  var pageEnd;
+  var getfromjson = function(jsonurl, page, pageEnd) {
+    $.getJSON(jsonurl, function(data) {
+      var jsonstring = '';
+      for (var num = page; num < pageEnd; num++) {
+        jsonstring+='<div>'+data[num].id+': '+data[num].name+'<br>'+'</div>';
+      }
+      $(".content").html(jsonstring);
+    })
+  };
   $('#b1').on("click", function() {
-  $('.bottom').hide();
     $(".content").html("<div> HElloWorld! </div>");
   });
 
   $('#b2').on("click", function() {
-    $('.bottom').hide();
-    $.getJSON('JSON/data.json', processData);
-    function processData(data) {
-      var empty='';
-      for (var num = 0; num <= 3; num++) {
-        empty+='<p>'+data[num].mytitle+'<br>'+data[num].myarticle+'</p>';
-      }
-      $(".content").html(empty);
-    }
+    getfromjson('JSON/data.json', 0, 4);
   });
 
   $('#b3').on("click", function() {
-    $('.bottom').hide();
-    $.getJSON('JSON/data2.json', processData);
-    function processData(data) {
-      var bla='';
-      $.each(data,function(mainobj, obj){
-        bla+='<p>'+obj.mytitle+'<br>'+obj.myarticle+'</p>';
-      });
-      $(".content").html(bla);
-    }
+    getfromjson('JSON/data3.json', 0, 10);
   });
 
   $('#b4').on("click", function() {
-	$.getJSON('JSON/data3.json', processData);
+	  $.getJSON('JSON/data3.json', processData);
     function processData(data) {
+		lastPage = data.length % 5;
+		numLastPage = data.length - lastPage;
+		alert(numLastPage);
+	}
 		page = 0 ;
 		pageEnd = 5;
-		var empty='';
-		var numbPage
-      for (numbPage = page; numbPage < pageEnd; numbPage++) {
-        empty+='<p>'+data[numbPage].id+'<br>'+data[numbPage].name+'</p>';
-      };
+    getfromjson('JSON/data3.json',page, pageEnd);
       $('.bottom').show();
-      $(".content").html(empty);
-	 // $(".content").html("dsada");
-};
-  });
-  	  $('#next').on("click", function() {
-		  $.getJSON('JSON/data3.json', processData);
-    function processData(data) {
-		if (page + 5 < data.length){
-			
-			if(data.length-pageEnd<5){
-				page=page +5;
-				pageEnd= pageEnd + 5;
-				empty = ' ';
-				for(var numbPage=page;numbPage < data.length; numbPage++) {
-                empty+='<p>'+data[numbPage].id+'<br>'+data[numbPage].name+'</p>';
-		        }
-				$(".content").html(empty);
-				
-			}else{
-				empty=' ';
-		  page=page +5;
-		  pageEnd= pageEnd + 5;
-		for (numbPage=page;numbPage < pageEnd; numbPage++) {
-        empty+='<p>'+data[numbPage].id+'<br>'+data[numbPage].name+'</p>';
-		};
-		$(".content").html(empty);
-		//alert(page+' '+pageEnd);
+    
+    $('#Next').on("click", function(){
+	  //alert(page+' '+ pageEnd);
+		if(pageEnd<=numLastPage)
+			{
+			if(pageEnd==numLastPage){
+		page=page +5;
+		pageEnd= pageEnd + 5;
+		empty = ' ';
+		$.getJSON('JSON/data3.json', function(data) {
+		for(var numbPage=page;numbPage < data.length; numbPage++) 
+			{
+                empty+='<div>'+data[numbPage].id+': '+data[numbPage].name+'<br>'+'</div>';
+		    }
+			$(".content").html(empty);})
 		}
-		}
-	  }
-	  }
-    )
-		  $('#prvs').on("click", function() {
-			  $.getJSON('JSON/data3.json', processData);
-    function processData(data) {
+		else{
+      page = pageEnd;
+      pageEnd += 5;
+      getfromjson('JSON/data3.json', page, pageEnd);
+	}}})
+	
+	$('#Prvs').on("click", function(){
 		if (page>4){
-		  empty = ' ';
-		  page=page - 5;
-		  pageEnd= pageEnd - 5;
-		for (numbPage=page;numbPage < pageEnd; numbPage++) {
-        empty+='<p>'+data[numbPage].id+'<br>'+data[numbPage].name+'</p>';
-		};
-		$(".content").html(empty);
-		  }
-		  }
-		  }
-    )
-
-});
+      page=page - 5;
+	  pageEnd= pageEnd - 5;
+      getfromjson('JSON/data3.json', page, pageEnd);
+	}})
+  })
+})
