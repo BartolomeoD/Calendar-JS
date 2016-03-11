@@ -36,8 +36,7 @@ $(document).ready(function() {
 		page = 0 ;
 		pageEnd = 5;
     getfromjson('JSON/data3.json',page, pageEnd);
-      $('.bottom').show();
-    
+     // $('.bottom').show();
     $('#Next').on("click", function(){
 		if(pageEnd<=numLastPage)
 			{
