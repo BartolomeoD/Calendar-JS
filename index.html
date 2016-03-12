@@ -1,26 +1,32 @@
 <!DOCTYPE html>
-
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
-		<title>эй пидоры</title>
-		<link href="css/style.css" rel="stylesheet" media="all">
-		<script src="js/jquery-2.2.1.min.js"></script>
-		<script src="js/script.js"></script>
+<html>
+<head>
+  <meta charset=utf-8 />
+	<title>Test</title>
+	<link href="css/style.css" rel="stylesheet">
+  <script src="js/jquery-2.2.1.min.js"></script>
+  <script src="js/script.js"></script>
+</head>
 <body>
-				<div class="sidebar">
-			<aside>
-				<h3>TestMenu</h3>
-					<ul>
-						<li><p id="b1">link 1</p></li>
-						<li><p id="b2">link 2</p></li>
-						<li><p id="b3">link 3</p></li>
-						<li><p id="b4">link 4</p></li>
-						<li><p id="b5">link 5</p></li>
-					</ul>
-			</aside>
-			<div id="content" >
-				<div class="main"></div>
-				<div class="bottom"><p id="prvs">prvs</p><p id="next">next</p></div>
-			</div>
-</body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h3>TestMenu</h3>
+      <ul>
+        <li><p id="b1">link 1</p></li>
+        <li><p id="b2">link 2</p></li>
+        <li><p id="b3">link 3</p></li>
+        <li><p id="b4">link 4</p></li>
+      </ul>
+    </aside>
+    <div class="main">
+      <div class="content">
+      </div>
+  	<div class="bottom" pagenum="1">
+      <div id = "First">First</div>
+      <div id = "Prvs">Prvs</div>
+      <div id = "Current">Current</div>
+      <div id = "Next">Next</div>
+      <div id = "Last">Last</div>
+    </div>
+  </div>
 </html>
