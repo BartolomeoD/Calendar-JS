@@ -64,7 +64,7 @@ $(document).ready(function() {
 	}})
   })
   $('#b5').on("click", function() {
-	$(".content").html("jk<br>ldgahklf<br><br>da<br><br><br><br><br>kg<br>hdfk<br><br><br>n fjaksdfkas<br>jdf/n/n<br>/n/n/<br>n/n<br>/n")
+	$(".main").html("jk<br>ldgahklf<br><br>da<br><br><br><br><br>kg<br>hdfk<br><br><br>n fjaksdfkas<br>jdf/n/n<br>/n/n/<br>n/n<br>/n")
 	$(".bottom").hide();
  })
  })
